@@ -1,0 +1,22 @@
+<div class="images-wrapper" id="images">
+  <button class="btn btm-prev" (click)="onPrev()">
+    &#x2039;
+  </button>
+  <div class="images">
+    <app-image
+      *ngFor="let imageItem of imagesTop"
+      [image]="imageItem"
+      class="image"
+      [@imageAnim]
+    ></app-image>
+    <app-image
+      *ngFor="let imageItem of imagesBottom"
+      [image]="imageItem"
+      class="image"
+      [@imageAnim]
+    ></app-image>
+  </div>
+  <button class="btn btm-next" (click)="onNext()">
+    &#x203A;
+  </button>
+</div>

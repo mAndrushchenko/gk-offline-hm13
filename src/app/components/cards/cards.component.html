@@ -1,0 +1,14 @@
+<div class="cards-wrapper" id="cards">
+  <button class="btn btm-prev" (click)="onPrev()">
+    &#x2039;
+  </button>
+  <app-card
+    class="cards"
+    *ngFor="let iterCard of cards; let idx = index"
+    [card]="iterCard"
+    [@cardAnim]
+  ></app-card>
+  <button class="btn btm-next" (click)="onNext()">
+    &#x203A;
+  </button>
+</div>

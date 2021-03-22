@@ -1,0 +1,35 @@
+@import "../../app.component";
+
+.images-wrapper {
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  width: 1200px;
+  height: 700px;
+  user-select: none;
+  background-color: #212121;
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.images {
+  display: grid;
+  grid-template: 300px 300px/400px 400px;
+  grid-gap: 40px 60px;
+  margin: auto;
+}
+
+
+.image {
+  width: 400px;
+  height: 300px;
+  box-shadow: 4px 4px 5px #000;
+  transition: ease-in 100ms;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}

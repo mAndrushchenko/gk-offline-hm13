@@ -1,0 +1,22 @@
+<div class="quotes-wrapper" id="quotes">
+  <button class="btn btm-prev" (click)="onPrev()">
+    &#x2039;
+  </button>
+  <div class="quotes" [@quoteAnim]>
+    <app-quote
+      [quote]="quoteTop"
+      class="quote-top"
+    ></app-quote>
+    <app-quote
+      [quote]="quoteMiddle"
+      class="quote-middle"
+    ></app-quote>
+    <app-quote
+      [quote]="quoteBottom"
+      class="quote-bottom"
+    ></app-quote>
+  </div>
+  <button class="btn btm-next" (click)="onNext()">
+    &#x203A;
+  </button>
+</div>
