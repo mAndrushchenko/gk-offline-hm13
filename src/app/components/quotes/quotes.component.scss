@@ -2,14 +2,16 @@
 
 .quotes-wrapper {
   user-select: none;
-  width: 1500px;
-  height: 700px;
+  max-width: 90%;
+  padding: 0 5%;
+  max-height: 700px;
   background-color: #212121;
-  margin: 10px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   cursor: grab;
+  margin: 0 auto;
+
 
   &:active {
     cursor: grabbing;
@@ -17,26 +19,43 @@
 }
 
 .quotes {
-  margin: 0;
-  width: 0;
+  margin-left: -10px;
+  margin-right: 20px;
+  max-width: 30%;
   height: 100%;
 }
 
 .quote-top {
   position: relative;
   top: 10px;
-  left: -530px;
+  left: -50%;
 }
 
 .quote-middle {
   position: relative;
   top: 10px;
-  left: -530px / 2 + 0;
+  left: 0;
 }
 
 .quote-bottom {
   position: relative;
   top: 10px;
-  left: 0;
+  left: 50%;
 }
 
+@media (max-width: 1200px) {
+  .quotes {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 50%;
+    height: 100%;
+  }
+
+  .quote-top {
+    left: 0;
+  }
+
+  .quote-bottom {
+    left: 0;
+  }
+}

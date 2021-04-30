@@ -1,15 +1,15 @@
 @import "../../app.component";
 
 .images-wrapper {
-  margin: 0;
   display: flex;
   flex-direction: row;
-  width: 1200px;
-  height: 700px;
+  max-width: 95% ;
+  padding: 0 5%;
+  max-height: 700px;
   user-select: none;
   background-color: #212121;
   cursor: grab;
-
+  margin: 0 auto;
   &:active {
     cursor: grabbing;
   }
@@ -17,13 +17,15 @@
 
 .images {
   display: grid;
-  grid-template: 300px 300px/400px 400px;
+  position: relative;
+  z-index: 11;
+  grid-template: 1fr 1fr /1fr 1fr;
   grid-gap: 40px 60px;
   margin: auto;
 }
 
 
-.image {
+.image__item {
   width: 400px;
   height: 300px;
   box-shadow: 4px 4px 5px #000;
@@ -32,4 +34,17 @@
   &:hover {
     transform: scale(1.2);
   }
+}
+
+.image__hidden {
+  display: none;
+}
+
+@media (max-width: 1199px) {
+
+  .images {
+    grid-template: 1fr /1fr;
+  }
+
+
 }

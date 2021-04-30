@@ -1,5 +1,31 @@
 <div class="wrapper">
-    <app-images></app-images>
-    <app-cards ></app-cards>
-    <app-quotes></app-quotes>
+  <div class="wrapper__nav">
+    <div class="wrapper__nav__link">
+      <a
+        class="wrapper__nav__link__item {{location === '/images' ? 'active' : ''}}"
+        [routerLink]="['images']"
+        routerLinkActive="active">
+        Images
+      </a>
+    </div>
+    <div class="wrapper__nav__link">
+      <a
+        class="wrapper__nav__link__item {{location === '/cards' ? 'active' : ''}}"
+        [routerLink]="['cards']"
+        routerLinkActive="active">
+      Cards
+      </a>
+    </div>
+    <div class="wrapper__nav__link">
+      <a
+        class="wrapper__nav__link__item {{location === '/quotes' ? 'active' : ''}}"
+        [routerLink]="['quotes']"
+        routerLinkActive="active">
+      Quotes
+      </a>
+    </div>
+  </div>
+
+  <router-outlet></router-outlet>
 </div>
+

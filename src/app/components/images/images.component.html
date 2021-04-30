@@ -1,22 +1,40 @@
 <div class="images-wrapper" id="images">
-  <button class="btn btm-prev" (click)="onPrev()">
-    &#x2039;
-  </button>
-  <div class="images">
-    <app-image
-      *ngFor="let imageItem of imagesTop"
-      [image]="imageItem"
-      class="image"
-      [@imageAnim]
-    ></app-image>
-    <app-image
-      *ngFor="let imageItem of imagesBottom"
-      [image]="imageItem"
-      class="image"
-      [@imageAnim]
-    ></app-image>
+  <div class="btn__wrapper">
+    <button class="btn btm-prev" (click)="onPrev()">
+      &#x2039;
+    </button>
   </div>
-  <button class="btn btm-next" (click)="onNext()">
-    &#x203A;
-  </button>
+  <div
+    adaptOnResize
+    class="images"
+    [sliderType]="'images'"
+    (amountOfItems)="changeImagesAmount($event)"
+  >
+    <div
+      *ngFor="let imageItem of imagesTop; let i = index"
+      class="image__item"
+      [class.image__hidden]="!(i >= amountOfImages)">
+      <app-image
+        *ngIf="i >= amountOfImages"
+        [image]="imageItem"
+        [@imageAnim]
+      ></app-image>
+    </div>
+    <div
+      *ngFor="let imageItem of imagesBottom; let j = index"
+      class="image__item"
+      [class.image__hidden]="!(j >= amountOfImages)">
+      <app-image
+        *ngIf="j >= amountOfImages"
+        [image]="imageItem"
+        [@imageAnim]
+      ></app-image>
+    </div>
+
+  </div>
+  <div class="btn__wrapper">
+    <button class="btn btm-next" (click)="onNext()">
+      &#x203A;
+    </button>
+  </div>
 </div>

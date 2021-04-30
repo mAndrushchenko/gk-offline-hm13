@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core'
-import { Card } from "./cards-data/data"
+import { Component, Input } from '@angular/core';
+import { ICard } from '../../../services/modal/cards-data/data';
 
 
 @Component({
@@ -8,5 +8,5 @@ import { Card } from "./cards-data/data"
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent {
-  @Input() card!: Card
+  @Input() card!: ICard;
 }

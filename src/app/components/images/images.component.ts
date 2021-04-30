@@ -1,7 +1,8 @@
-import { AfterViewInit, Component } from '@angular/core'
-import { imagesDataTop, imagesDataBottom } from "./image/images-data/images-data"
-import { animate, style, transition, trigger } from "@angular/animations"
-import { onDrag } from "../../services/drag-switcher"
+import { File } from '@angular/compiler-cli/src/ngtsc/file_system/testing/src/mock_file_system';
+import { animate, style, transition, trigger } from '@angular/animations';
+import { ImagesService } from '../../services/images.service';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { onDrag } from '../../services/drag-switcher';
 
 @Component({
   selector: 'app-images',
@@ -15,7 +16,7 @@ import { onDrag } from "../../services/drag-switcher"
           opacity: 0,
           transform: 'scale(0.85)',
           'margin-bottom': 0,
-          padding: 0,
+          padding: 0
         }),
         animate('50ms', style({
           height: '*',
@@ -23,46 +24,45 @@ import { onDrag } from "../../services/drag-switcher"
           padding: '*'
         })),
         animate(100)
-      ]),
+      ])
     ])
   ]
 })
-export class ImagesComponent implements AfterViewInit {
-  imagesTop: string[] = []
-  imagesBottom: string[] = []
+export class ImagesComponent implements OnInit, AfterViewInit {
+  imagesTop: File[] = [];
+  imagesBottom: File[] = [];
+  private screenWidth = window.innerWidth;
+  amountOfImages = this.screenWidth > 1200 ? 0 : 1;
 
-  startNumber = 0
 
-  getImageList(count: number) {
-    this.imagesTop = imagesDataTop.slice(count, count + 2)
-    this.imagesBottom = imagesDataBottom.slice(count, count + 2)
+  constructor(private slider$: ImagesService) {
+    this.getImages();
+  }
+
+  getImages() {
+    this.slider$.getImageList().subscribe(imagesList => {
+      this.imagesTop = imagesList.imagesTop;
+      this.imagesBottom = imagesList.imagesBottom;
+    });
+  }
+
+  changeImagesAmount(amount: number) {
+    this.amountOfImages = amount;
   }
 
   onPrev() {
-    if (!(this.startNumber <= 0)) {
-      this.startNumber = this.startNumber - 1
-      this.getImageList(this.startNumber)
-    } else {
-      this.startNumber = 6
-      this.getImageList(this.startNumber)
-    }
+    this.slider$.onPrev();
   }
 
   onNext() {
-    if (!(this.startNumber >= 6)) {
-      this.startNumber = this.startNumber + 1
-      this.getImageList(this.startNumber)
-    } else {
-      this.startNumber = 0
-      this.getImageList(this.startNumber)
-    }
+    this.slider$.onNext();
   }
 
   ngAfterViewInit() {
-    onDrag('images', this.onPrev.bind(this), this.onNext.bind(this))
+    onDrag('images', this.onPrev.bind(this), this.onNext.bind(this));
   }
 
   ngOnInit(): void {
-    this.getImageList(this.startNumber)
+    this.slider$.setImageList();
   }
 }

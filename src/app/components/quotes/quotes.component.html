@@ -1,22 +1,26 @@
 <div class="quotes-wrapper" id="quotes">
-  <button class="btn btm-prev" (click)="onPrev()">
-    &#x2039;
-  </button>
+  <div class="btn__wrapper">
+    <button class="btn" (click)="onPrev()">
+      &#x2039;
+    </button>
+  </div>
   <div class="quotes" [@quoteAnim]>
     <app-quote
-      [quote]="quoteTop"
+      [quote]="quotes.quoteTop"
       class="quote-top"
     ></app-quote>
     <app-quote
-      [quote]="quoteMiddle"
+      [quote]="quotes.quoteMiddle"
       class="quote-middle"
     ></app-quote>
     <app-quote
-      [quote]="quoteBottom"
+      [quote]="quotes.quoteBottom"
       class="quote-bottom"
     ></app-quote>
   </div>
-  <button class="btn btm-next" (click)="onNext()">
-    &#x203A;
-  </button>
+  <div class="btn__wrapper">
+    <button class="btn btm-next" (click)="onNext()">
+      &#x203A;
+    </button>
+  </div>
 </div>

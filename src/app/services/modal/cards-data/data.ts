@@ -1,27 +1,27 @@
-import img1 from './images/1-mad-max.jpg'
-import img2 from './images/2-spider-man.jpg'
-import img3 from './images/3-boyhood.jpg'
-import img4 from './images/4-get-out.jpg'
-import img5 from './images/5-lady-bird.jpg'
-import img6 from './images/6-the-favourite.jpg'
-import img7 from './images/7-roma.jpg'
-import img8 from './images/8-black-panther.jpg'
-import img9 from './images/9-ex-machina.jpg'
-import img10 from './images/10-the-master.jpg'
-import img11 from './images/11-her.jpg'
-import img12 from './images/12-moonlight.jpg'
-import img13 from './images/13-the-social-network.jpg'
-import img14 from './images/14-drive.jpg'
-import img15 from './images/15-avengers.jpg'
+import img1 from '@assets/images/cards-component/1-mad-max.jpg';
+import img2 from '@assets/images/cards-component/2-spider-man.jpg';
+import img3 from '@assets/images/cards-component/3-boyhood.jpg';
+import img4 from '@assets/images/cards-component/4-get-out.jpg';
+import img5 from '@assets/images/cards-component/5-lady-bird.jpg';
+import img6 from '@assets/images/cards-component/6-the-favourite.jpg';
+import img7 from '@assets/images/cards-component/7-roma.jpg';
+import img8 from '@assets/images/cards-component/8-black-panther.jpg';
+import img9 from '@assets/images/cards-component/9-ex-machina.jpg';
+import img10 from '@assets/images/cards-component/10-the-master.jpg';
+import img11 from '@assets/images/cards-component/11-her.jpg';
+import img12 from '@assets/images/cards-component/12-moonlight.jpg';
+import img13 from '@assets/images/cards-component/13-the-social-network.jpg';
+import img14 from '@assets/images/cards-component/14-drive.jpg';
+import img15 from '@assets/images/cards-component/15-avengers.jpg';
 
-export interface Card {
-  img: any
-  studio: string
-  name: string
-  description: string
+export interface ICard {
+  img: string;
+  studio: string;
+  name: string;
+  description: string;
 }
 
-export const cardsData: Card[] = [
+export const cardsData: ICard[] = [
   {
     img: img1,
     studio: 'Warner Bros',
@@ -112,4 +112,4 @@ export const cardsData: Card[] = [
     description: 'The sheer size of this blockbuster, with its sky-high budget, A-listers and ravenous fandom, make Anthony and Joe Russo\'s film all the more impressive. To culminate 20 Marvel films in a two-part showstopper is experimental madness on its own. But to end (spoiler) the first of those parts with almost all your heroes losing... who says all superhero films are predictable?',
     name: 'Avengers: Infinity War (2018)'
   }
-]
+];

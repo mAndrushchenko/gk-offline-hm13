@@ -1,14 +1,26 @@
 <div class="cards-wrapper" id="cards">
-  <button class="btn btm-prev" (click)="onPrev()">
-    &#x2039;
-  </button>
-  <app-card
+  <div class="btn__wrapper">
+    <button class="btn btm-prev" (click)="onPrev()">
+      &#x2039;
+    </button>
+  </div>
+  <div
+    adaptOnResize
+    [sliderType]="'cards'"
+    *ngFor="let card of cards; let idx = index"
     class="cards"
-    *ngFor="let iterCard of cards; let idx = index"
-    [card]="iterCard"
-    [@cardAnim]
-  ></app-card>
-  <button class="btn btm-next" (click)="onNext()">
-    &#x203A;
-  </button>
+    (amountOfItems)="changeCardsAmount($event)"
+    [class.cards__hidden]="!(idx >= amountOfCards)"
+  >
+    <app-card
+      *ngIf="idx >= amountOfCards"
+      [card]="card"
+      [@cardAnim]
+    ></app-card>
+  </div>
+  <div class="btn__wrapper">
+    <button class="btn btm-next" (click)="onNext()">
+      &#x203A;
+    </button>
+  </div>
 </div>
